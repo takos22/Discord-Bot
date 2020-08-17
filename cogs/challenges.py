@@ -32,7 +32,7 @@ class ChallengeHandler(commands.Cog):
             await self.bot.guild.get_member(payload.user_id).add_roles(participant)
 
     @commands.Cog.listener()
-    async def on_message(self, message):  # Submitted role.
+    async def on_message(self, message): # Submitted role.
         if message.author.bot:
             return
 
@@ -67,3 +67,5 @@ class ChallengeHandler(commands.Cog):
                 embed.set_author(name=str(message.author), icon_url=message.author.avatar_url)
                 embed.set_footer(text=f'#ID: {message.author.id}')
                 await submission_channel.send(embed=embed)
+
+        elif message.channel.id in [680851798340272141, 713841395965624490]: # Automatic reaction
